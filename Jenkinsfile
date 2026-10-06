@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Git Clone') {
             steps {
-               git branch: 'main', url: 'https://github.com/ashokitschool/contact_backend_app.git'
+               git branch: 'main', url: 'https://github.com/Ramesh-deep/contact_backend_app.git'
             }
         }
         stage('Maven Build'){
@@ -18,14 +18,14 @@ pipeline {
         }
         stage('Docker Image'){
             steps{
-             sh 'docker build -t ashokit/contact_backend_app .'
+             sh 'docker build -t maheshji/contact_backend_app .'
             }
         }
         stage('Docker Image push'){
             steps{
             withCredentials([string(credentialsId: 'docker_pwd', variable: 'docker_pwd')]) {
-                   sh 'docker login -u ashokit -p ${docker_pwd}'
-                   sh 'docker push ashokit/contact_backend_app'
+                   sh 'docker login -u maheshji -p ${docker_pwd}'
+                   sh 'docker push maheshji/contact_backend_app'
             }
             }
         }
