@@ -1,4 +1,4 @@
-FROM openjdk:11
+FROM eclipse-temurin:11-jre
 
 COPY target/contact-backend-app.jar  /usr/app/
 
